@@ -1,5 +1,5 @@
 <template>
-    <jet-action-section>
+    <action-section>
         <template #title>
             Delete Team
         </template>
@@ -14,13 +14,13 @@
             </div>
 
             <div class="mt-5">
-                <jet-danger-button @click.native="confirmTeamDeletion">
+                <danger-button @click.native="confirmTeamDeletion">
                     Delete Team
-                </jet-danger-button>
+                </danger-button>
             </div>
 
             <!-- Delete Team Confirmation Modal -->
-            <jet-confirmation-modal :show="confirmingTeamDeletion" @close="confirmingTeamDeletion = false">
+            <confirmation-modal :show="confirmingTeamDeletion" @close="confirmingTeamDeletion = false">
                 <template #title>
                     Delete Team
                 </template>
@@ -30,33 +30,33 @@
                 </template>
 
                 <template #footer>
-                    <jet-secondary-button @click.native="confirmingTeamDeletion = false">
+                    <secondary-button @click.native="confirmingTeamDeletion = false">
                         Nevermind
-                    </jet-secondary-button>
+                    </secondary-button>
 
-                    <jet-danger-button class="ml-2" @click.native="deleteTeam" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                    <danger-button class="ml-2" @click.native="deleteTeam" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                         Delete Team
-                    </jet-danger-button>
+                    </danger-button>
                 </template>
-            </jet-confirmation-modal>
+            </confirmation-modal>
         </template>
-    </jet-action-section>
+    </action-section>
 </template>
 
 <script>
-    import JetActionSection from '@/Jetstream/ActionSection'
-    import JetConfirmationModal from '@/Jetstream/ConfirmationModal'
-    import JetDangerButton from '@/Jetstream/DangerButton'
-    import JetSecondaryButton from '@/Jetstream/SecondaryButton'
+    import ActionSection from '@/Components/ActionSection'
+    import ConfirmationModal from '@/Components/ConfirmationModal'
+    import DangerButton from '@/Components/DangerButton'
+    import SecondaryButton from '@/Components/SecondaryButton'
 
     export default {
         props: ['team'],
 
         components: {
-            JetActionSection,
-            JetConfirmationModal,
-            JetDangerButton,
-            JetSecondaryButton,
+            ActionSection,
+            ConfirmationModal,
+            DangerButton,
+            SecondaryButton,
         },
 
         data() {

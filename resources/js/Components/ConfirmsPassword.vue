@@ -4,7 +4,7 @@
             <slot />
         </span>
 
-        <jet-dialog-modal :show="confirmingPassword" @close="closeModal">
+        <dialog-modal :show="confirmingPassword" @close="closeModal">
             <template #title>
                 {{ title }}
             </template>
@@ -13,34 +13,34 @@
                 {{ content }}
 
                 <div class="mt-4">
-                    <jet-input type="password" class="mt-1 block w-3/4" placeholder="Password"
+                    <input type="password" class="mt-1 block w-3/4" placeholder="Password"
                                 ref="password"
                                 v-model="form.password"
                                 @keyup.enter.native="confirmPassword" />
 
-                    <jet-input-error :message="form.error" class="mt-2" />
+                    <input-error :message="form.error" class="mt-2" />
                 </div>
             </template>
 
             <template #footer>
-                <jet-secondary-button @click.native="closeModal">
+                <secondary-button @click.native="closeModal">
                     Nevermind
-                </jet-secondary-button>
+                </secondary-button>
 
-                <jet-button class="ml-2" @click.native="confirmPassword" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                <button class="ml-2" @click.native="confirmPassword" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                     {{ button }}
-                </jet-button>
+                </button>
             </template>
-        </jet-dialog-modal>
+        </dialog-modal>
     </span>
 </template>
 
 <script>
-    import JetButton from './Button'
-    import JetDialogModal from './DialogModal'
-    import JetInput from './Input'
-    import JetInputError from './InputError'
-    import JetSecondaryButton from './SecondaryButton'
+    import Button from './Button'
+    import DialogModal from './DialogModal'
+    import Input from './Input'
+    import InputError from './InputError'
+    import SecondaryButton from './SecondaryButton'
 
     export default {
         props: {
@@ -56,11 +56,11 @@
         },
 
         components: {
-            JetButton,
-            JetDialogModal,
-            JetInput,
-            JetInputError,
-            JetSecondaryButton,
+            Button,
+            DialogModal,
+            Input,
+            InputError,
+            SecondaryButton,
         },
 
         data() {
