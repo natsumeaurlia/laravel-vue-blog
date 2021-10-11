@@ -1,7 +1,7 @@
 <template>
-    <authentication-card>
+    <jet-authentication-card>
         <template #logo>
-            <authentication-card-logo />
+            <jet-authentication-card-logo />
         </template>
 
         <div class="mb-4 text-sm text-gray-600">
@@ -14,26 +14,26 @@
 
         <form @submit.prevent="submit">
             <div class="mt-4 flex items-center justify-between">
-                <button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                <jet-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                     Resend Verification Email
-                </button>
+                </jet-button>
 
                 <inertia-link :href="route('logout')" method="post" as="button" class="underline text-sm text-gray-600 hover:text-gray-900">Logout</inertia-link>
             </div>
         </form>
-    </authentication-card>
+    </jet-authentication-card>
 </template>
 
 <script>
-    import AuthenticationCard from '@/Components/AuthenticationCard'
-    import AuthenticationCardLogo from '@/Components/AuthenticationCardLogo'
-    import Button from '@/Components/Button'
+    import JetAuthenticationCard from '@/Jetstream/AuthenticationCard'
+    import JetAuthenticationCardLogo from '@/Jetstream/AuthenticationCardLogo'
+    import JetButton from '@/Jetstream/Button'
 
     export default {
         components: {
-            AuthenticationCard,
-            AuthenticationCardLogo,
-            Button,
+            JetAuthenticationCard,
+            JetAuthenticationCardLogo,
+            JetButton,
         },
 
         props: {

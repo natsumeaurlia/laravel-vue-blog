@@ -18,7 +18,7 @@
 
 <script>
     import AppLayout from '@/Layouts/AppLayout'
-    import Welcome from '@/Components/Welcome'
+    import Welcome from '@/Jetstream/Welcome'
 
     export default {
         components: {

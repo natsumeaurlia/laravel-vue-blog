@@ -1,10 +1,10 @@
 <template>
-    <authentication-card>
+    <jet-authentication-card>
         <template #logo>
-            <authentication-card-logo />
+            <jet-authentication-card-logo />
         </template>
 
-        <validation-errors class="mb-4" />
+        <jet-validation-errors class="mb-4" />
 
         <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
             {{ status }}
@@ -12,18 +12,18 @@
 
         <form @submit.prevent="submit">
             <div>
-                <label for="email" value="Email" />
-                <input id="email" type="email" class="mt-1 block w-full" v-model="form.email" required autofocus />
+                <jet-label for="email" value="Email" />
+                <jet-input id="email" type="email" class="mt-1 block w-full" v-model="form.email" required autofocus />
             </div>
 
             <div class="mt-4">
-                <label for="password" value="Password" />
-                <input id="password" type="password" class="mt-1 block w-full" v-model="form.password" required autocomplete="current-password" />
+                <jet-label for="password" value="Password" />
+                <jet-input id="password" type="password" class="mt-1 block w-full" v-model="form.password" required autocomplete="current-password" />
             </div>
 
             <div class="block mt-4">
                 <label class="flex items-center">
-                    <checkbox name="remember" v-model="form.remember" />
+                    <jet-checkbox name="remember" v-model="form.remember" />
                     <span class="ml-2 text-sm text-gray-600">Remember me</span>
                 </label>
             </div>
@@ -33,32 +33,32 @@
                     Forgot your password?
                 </inertia-link>
 
-                <button class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                <jet-button class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                     Login
-                </button>
+                </jet-button>
             </div>
         </form>
-    </authentication-card>
+    </jet-authentication-card>
 </template>
 
 <script>
-    import AuthenticationCard from '@/Components/AuthenticationCard'
-    import AuthenticationCardLogo from '@/Components/AuthenticationCardLogo'
-    import Button from '@/Components/Button'
-    import Input from '@/Components/Input'
-    import Checkbox from '@/Components/Checkbox'
-    import Label from '@/Components/Label'
-    import ValidationErrors from '@/Components/ValidationErrors'
+    import JetAuthenticationCard from '@/Jetstream/AuthenticationCard'
+    import JetAuthenticationCardLogo from '@/Jetstream/AuthenticationCardLogo'
+    import JetButton from '@/Jetstream/Button'
+    import JetInput from '@/Jetstream/Input'
+    import JetCheckbox from '@/Jetstream/Checkbox'
+    import JetLabel from '@/Jetstream/Label'
+    import JetValidationErrors from '@/Jetstream/ValidationErrors'
 
     export default {
         components: {
-            AuthenticationCard,
-            AuthenticationCardLogo,
-            Button,
-            Input,
-            Checkbox,
-            Label,
-            ValidationErrors
+            JetAuthenticationCard,
+            JetAuthenticationCardLogo,
+            JetButton,
+            JetInput,
+            JetCheckbox,
+            JetLabel,
+            JetValidationErrors
         },
 
         props: {

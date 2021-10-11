@@ -1,5 +1,5 @@
 <template>
-    <form-section @submitted="createTeam">
+    <jet-form-section @submitted="createTeam">
         <template #title>
             Team Details
         </template>
@@ -10,7 +10,7 @@
 
         <template #form>
             <div class="col-span-6">
-                <label value="Team Owner" />
+                <jet-label value="Team Owner" />
 
                 <div class="flex items-center mt-2">
                     <img class="w-12 h-12 rounded-full object-cover" :src="$page.props.user.profile_photo_url" :alt="$page.props.user.name">
@@ -23,34 +23,34 @@
             </div>
 
             <div class="col-span-6 sm:col-span-4">
-                <label for="name" value="Team Name" />
-                <input id="name" type="text" class="mt-1 block w-full" v-model="form.name" autofocus />
-                <input-error :message="form.errors.name" class="mt-2" />
+                <jet-label for="name" value="Team Name" />
+                <jet-input id="name" type="text" class="mt-1 block w-full" v-model="form.name" autofocus />
+                <jet-input-error :message="form.errors.name" class="mt-2" />
             </div>
         </template>
 
         <template #actions>
-            <button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+            <jet-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                 Create
-            </button>
+            </jet-button>
         </template>
-    </form-section>
+    </jet-form-section>
 </template>
 
 <script>
-    import Button from '@/Components/Button'
-    import FormSection from '@/Components/FormSection'
-    import Input from '@/Components/Input'
-    import InputError from '@/Components/InputError'
-    import Label from '@/Components/Label'
+    import JetButton from '@/Jetstream/Button'
+    import JetFormSection from '@/Jetstream/FormSection'
+    import JetInput from '@/Jetstream/Input'
+    import JetInputError from '@/Jetstream/InputError'
+    import JetLabel from '@/Jetstream/Label'
 
     export default {
         components: {
-            Button,
-            FormSection,
-            Input,
-            InputError,
-            Label,
+            JetButton,
+            JetFormSection,
+            JetInput,
+            JetInputError,
+            JetLabel,
         },
 
         data() {

@@ -1,5 +1,5 @@
 <template>
-    <form-section @submitted="updatePassword">
+    <jet-form-section @submitted="updatePassword">
         <template #title>
             Update Password
         </template>
@@ -10,52 +10,52 @@
 
         <template #form>
             <div class="col-span-6 sm:col-span-4">
-                <label for="current_password" value="Current Password" />
-                <input id="current_password" type="password" class="mt-1 block w-full" v-model="form.current_password" ref="current_password" autocomplete="current-password" />
-                <input-error :message="form.errors.current_password" class="mt-2" />
+                <jet-label for="current_password" value="Current Password" />
+                <jet-input id="current_password" type="password" class="mt-1 block w-full" v-model="form.current_password" ref="current_password" autocomplete="current-password" />
+                <jet-input-error :message="form.errors.current_password" class="mt-2" />
             </div>
 
             <div class="col-span-6 sm:col-span-4">
-                <label for="password" value="New Password" />
-                <input id="password" type="password" class="mt-1 block w-full" v-model="form.password" ref="password" autocomplete="new-password" />
-                <input-error :message="form.errors.password" class="mt-2" />
+                <jet-label for="password" value="New Password" />
+                <jet-input id="password" type="password" class="mt-1 block w-full" v-model="form.password" ref="password" autocomplete="new-password" />
+                <jet-input-error :message="form.errors.password" class="mt-2" />
             </div>
 
             <div class="col-span-6 sm:col-span-4">
-                <label for="password_confirmation" value="Confirm Password" />
-                <input id="password_confirmation" type="password" class="mt-1 block w-full" v-model="form.password_confirmation" autocomplete="new-password" />
-                <input-error :message="form.errors.password_confirmation" class="mt-2" />
+                <jet-label for="password_confirmation" value="Confirm Password" />
+                <jet-input id="password_confirmation" type="password" class="mt-1 block w-full" v-model="form.password_confirmation" autocomplete="new-password" />
+                <jet-input-error :message="form.errors.password_confirmation" class="mt-2" />
             </div>
         </template>
 
         <template #actions>
-            <action-message :on="form.recentlySuccessful" class="mr-3">
+            <jet-action-message :on="form.recentlySuccessful" class="mr-3">
                 Saved.
-            </action-message>
+            </jet-action-message>
 
-            <button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+            <jet-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                 Save
-            </button>
+            </jet-button>
         </template>
-    </form-section>
+    </jet-form-section>
 </template>
 
 <script>
-    import ActionMessage from '@/Components/ActionMessage'
-    import Button from '@/Components/Button'
-    import FormSection from '@/Components/FormSection'
-    import Input from '@/Components/Input'
-    import InputError from '@/Components/InputError'
-    import Label from '@/Components/Label'
+    import JetActionMessage from '@/Jetstream/ActionMessage'
+    import JetButton from '@/Jetstream/Button'
+    import JetFormSection from '@/Jetstream/FormSection'
+    import JetInput from '@/Jetstream/Input'
+    import JetInputError from '@/Jetstream/InputError'
+    import JetLabel from '@/Jetstream/Label'
 
     export default {
         components: {
-            ActionMessage,
-            Button,
-            FormSection,
-            Input,
-            InputError,
-            Label,
+            JetActionMessage,
+            JetButton,
+            JetFormSection,
+            JetInput,
+            JetInputError,
+            JetLabel,
         },
 
         data() {

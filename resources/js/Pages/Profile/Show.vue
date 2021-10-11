@@ -11,25 +11,25 @@
                 <div v-if="$page.props.jetstream.canUpdateProfileInformation">
                     <update-profile-information-form :user="$page.props.user" />
 
-                    <section-border />
+                    <jet-section-border />
                 </div>
 
                 <div v-if="$page.props.jetstream.canUpdatePassword">
                     <update-password-form class="mt-10 sm:mt-0" />
 
-                    <section-border />
+                    <jet-section-border />
                 </div>
 
                 <div v-if="$page.props.jetstream.canManageTwoFactorAuthentication">
                     <two-factor-authentication-form class="mt-10 sm:mt-0" />
 
-                    <section-border />
+                    <jet-section-border />
                 </div>
 
                 <logout-other-browser-sessions-form :sessions="sessions" class="mt-10 sm:mt-0" />
 
                 <template v-if="$page.props.jetstream.hasAccountDeletionFeatures">
-                    <section-border />
+                    <jet-section-border />
 
                     <delete-user-form class="mt-10 sm:mt-0" />
                 </template>
@@ -41,7 +41,7 @@
 <script>
     import AppLayout from '@/Layouts/AppLayout'
     import DeleteUserForm from './DeleteUserForm'
-    import SectionBorder from '@/Components/SectionBorder'
+    import JetSectionBorder from '@/Jetstream/SectionBorder'
     import LogoutOtherBrowserSessionsForm from './LogoutOtherBrowserSessionsForm'
     import TwoFactorAuthenticationForm from './TwoFactorAuthenticationForm'
     import UpdatePasswordForm from './UpdatePasswordForm'
@@ -53,7 +53,7 @@
         components: {
             AppLayout,
             DeleteUserForm,
-            SectionBorder,
+            JetSectionBorder,
             LogoutOtherBrowserSessionsForm,
             TwoFactorAuthenticationForm,
             UpdatePasswordForm,

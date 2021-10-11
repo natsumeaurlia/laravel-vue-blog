@@ -1,5 +1,5 @@
 <template>
-    <action-section>
+    <jet-action-section>
         <template #title>
             Browser Sessions
         </template>
@@ -44,17 +44,17 @@
             </div>
 
             <div class="flex items-center mt-5">
-                <button @click.native="confirmLogout">
+                <jet-button @click.native="confirmLogout">
                     Logout Other Browser Sessions
-                </button>
+                </jet-button>
 
-                <action-message :on="form.recentlySuccessful" class="ml-3">
+                <jet-action-message :on="form.recentlySuccessful" class="ml-3">
                     Done.
-                </action-message>
+                </jet-action-message>
             </div>
 
             <!-- Logout Other Devices Confirmation Modal -->
-            <dialog-modal :show="confirmingLogout" @close="closeModal">
+            <jet-dialog-modal :show="confirmingLogout" @close="closeModal">
                 <template #title>
                     Logout Other Browser Sessions
                 </template>
@@ -63,49 +63,49 @@
                     Please enter your password to confirm you would like to logout of your other browser sessions across all of your devices.
 
                     <div class="mt-4">
-                        <input type="password" class="mt-1 block w-3/4" placeholder="Password"
+                        <jet-input type="password" class="mt-1 block w-3/4" placeholder="Password"
                                     ref="password"
                                     v-model="form.password"
                                     @keyup.enter.native="logoutOtherBrowserSessions" />
 
-                        <input-error :message="form.errors.password" class="mt-2" />
+                        <jet-input-error :message="form.errors.password" class="mt-2" />
                     </div>
                 </template>
 
                 <template #footer>
-                    <secondary-button @click.native="closeModal">
+                    <jet-secondary-button @click.native="closeModal">
                         Nevermind
-                    </secondary-button>
+                    </jet-secondary-button>
 
-                    <button class="ml-2" @click.native="logoutOtherBrowserSessions" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                    <jet-button class="ml-2" @click.native="logoutOtherBrowserSessions" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                         Logout Other Browser Sessions
-                    </button>
+                    </jet-button>
                 </template>
-            </dialog-modal>
+            </jet-dialog-modal>
         </template>
-    </action-section>
+    </jet-action-section>
 </template>
 
 <script>
-    import ActionMessage from '@/Components/ActionMessage'
-    import ActionSection from '@/Components/ActionSection'
-    import Button from '@/Components/Button'
-    import DialogModal from '@/Components/DialogModal'
-    import Input from '@/Components/Input'
-    import InputError from '@/Components/InputError'
-    import SecondaryButton from '@/Components/SecondaryButton'
+    import JetActionMessage from '@/Jetstream/ActionMessage'
+    import JetActionSection from '@/Jetstream/ActionSection'
+    import JetButton from '@/Jetstream/Button'
+    import JetDialogModal from '@/Jetstream/DialogModal'
+    import JetInput from '@/Jetstream/Input'
+    import JetInputError from '@/Jetstream/InputError'
+    import JetSecondaryButton from '@/Jetstream/SecondaryButton'
 
     export default {
         props: ['sessions'],
 
         components: {
-            ActionMessage,
-            ActionSection,
-            Button,
-            DialogModal,
-            Input,
-            InputError,
-            SecondaryButton,
+            JetActionMessage,
+            JetActionSection,
+            JetButton,
+            JetDialogModal,
+            JetInput,
+            JetInputError,
+            JetSecondaryButton,
         },
 
         data() {

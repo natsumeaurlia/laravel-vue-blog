@@ -1,5 +1,5 @@
 <template>
-    <form-section @submitted="updateTeamName">
+    <jet-form-section @submitted="updateTeamName">
         <template #title>
             Team Name
         </template>
@@ -11,7 +11,7 @@
         <template #form>
             <!-- Team Owner Information -->
             <div class="col-span-6">
-                <label value="Team Owner" />
+                <jet-label value="Team Owner" />
 
                 <div class="flex items-center mt-2">
                     <img class="w-12 h-12 rounded-full object-cover" :src="team.owner.profile_photo_url" :alt="team.owner.name">
@@ -25,46 +25,46 @@
 
             <!-- Team Name -->
             <div class="col-span-6 sm:col-span-4">
-                <label for="name" value="Team Name" />
+                <jet-label for="name" value="Team Name" />
 
-                <input id="name"
+                <jet-input id="name"
                             type="text"
                             class="mt-1 block w-full"
                             v-model="form.name"
                             :disabled="! permissions.canUpdateTeam" />
 
-                <input-error :message="form.errors.name" class="mt-2" />
+                <jet-input-error :message="form.errors.name" class="mt-2" />
             </div>
         </template>
 
         <template #actions v-if="permissions.canUpdateTeam">
-            <action-message :on="form.recentlySuccessful" class="mr-3">
+            <jet-action-message :on="form.recentlySuccessful" class="mr-3">
                 Saved.
-            </action-message>
+            </jet-action-message>
 
-            <button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+            <jet-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                 Save
-            </button>
+            </jet-button>
         </template>
-    </form-section>
+    </jet-form-section>
 </template>
 
 <script>
-    import ActionMessage from '@/Components/ActionMessage'
-    import Button from '@/Components/Button'
-    import FormSection from '@/Components/FormSection'
-    import Input from '@/Components/Input'
-    import InputError from '@/Components/InputError'
-    import Label from '@/Components/Label'
+    import JetActionMessage from '@/Jetstream/ActionMessage'
+    import JetButton from '@/Jetstream/Button'
+    import JetFormSection from '@/Jetstream/FormSection'
+    import JetInput from '@/Jetstream/Input'
+    import JetInputError from '@/Jetstream/InputError'
+    import JetLabel from '@/Jetstream/Label'
 
     export default {
         components: {
-            ActionMessage,
-            Button,
-            FormSection,
-            Input,
-            InputError,
-            Label,
+            JetActionMessage,
+            JetButton,
+            JetFormSection,
+            JetInput,
+            JetInputError,
+            JetLabel,
         },
 
         props: ['team', 'permissions'],
