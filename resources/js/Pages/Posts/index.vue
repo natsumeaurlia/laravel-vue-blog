@@ -16,14 +16,12 @@
 
 <script>
 import Layout from '@/Layouts/GuestLayout'
-import Welcome from '@/Components/Welcome'
 import PostCard from "@/Components/PostCard";
 
 export default {
     components: {
         PostCard,
         Layout,
-        Welcome,
     },
 
     props: {

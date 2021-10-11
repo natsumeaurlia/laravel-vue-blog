@@ -65,12 +65,12 @@
 </template>
 
 <script>
-    import ApplicationMark from '@/Components/ApplicationMark'
-    import Banner from '@/Components/Banner'
-    import Dropdown from '@/Components/Dropdown'
-    import DropdownLink from '@/Components/DropdownLink'
-    import NavLink from '@/Components/NavLink'
-    import ResponsiveNavLink from '@/Components/ResponsiveNavLink'
+    import ApplicationMark from '@/Jetstream/ApplicationMark'
+    import Banner from '@/Jetstream/Banner'
+    import Dropdown from '@/Jetstream/Dropdown'
+    import DropdownLink from '@/Jetstream/DropdownLink'
+    import NavLink from '@/Jetstream/NavLink'
+    import ResponsiveNavLink from '@/Jetstream/ResponsiveNavLink'
 
     export default {
         components: {
