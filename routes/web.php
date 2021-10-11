@@ -1,9 +1,9 @@
 <?php
 
-use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\Admin\PostController as AdminPostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +16,12 @@ use App\Http\Controllers\PostController;
 |
 */
 
-Route::resource('/', PostController::class)->only('index');
+Route::redirect('/', 'post');
+Route::resource('post', PostController::class)->only(['index', 'show']);
+
+Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
+    Route::resource('post', AdminPostController::class);
+});
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('Dashboard');

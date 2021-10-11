@@ -1,15 +1,12 @@
 <template>
     <layout>
-        <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Posts
-            </h2>
-        </template>
-
         <div class="py-12">
-            <div v-for="(post, index) in posts.data" :class="['bg-white overflow-hidden shadow-xl sm:rounded-lg', index % 2 == 0 ? 'my-8' : '']">
-                <PostCard :title="post.title" :content="post.content"/>
-            </div>
+            <template v-for="(post, index) in posts.data">
+                <inertia-link :href="route('post.show', post.id)" :key="index"
+                              :class="['block bg-white overflow-hidden shadow-sm sm:rounded-lg', index % 2 == 0 ? 'my-8' : '']">
+                    <PostCard :title="post.title" :content="post.content"/>
+                </inertia-link>
+            </template>
         </div>
     </layout>
 </template>
