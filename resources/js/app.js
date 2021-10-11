@@ -4,10 +4,13 @@ require('./bootstrap');
 import Vue from 'vue';
 import { App as InertiaApp, plugin as InertiaPlugin } from '@inertiajs/inertia-vue';
 import PortalVue from 'portal-vue';
+import {InertiaProgress} from '@inertiajs/progress'
 
 Vue.mixin({ methods: { route } });
 Vue.use(InertiaPlugin);
 Vue.use(PortalVue);
+
+InertiaProgress.init();
 
 const app = document.getElementById('app');
 
