@@ -7,10 +7,8 @@
         </template>
 
         <div class="py-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                    <welcome />
-                </div>
+            <div v-for="(post, index) in posts.data" :class="['bg-white overflow-hidden shadow-xl sm:rounded-lg', index % 2 == 0 ? 'my-8' : '']">
+                <PostCard :title="post.title" :content="post.content"/>
             </div>
         </div>
     </layout>
@@ -19,11 +17,19 @@
 <script>
 import Layout from '@/Layouts/GuestLayout'
 import Welcome from '@/Components/Welcome'
+import PostCard from "@/Components/PostCard";
 
 export default {
     components: {
+        PostCard,
         Layout,
         Welcome,
     },
+
+    props: {
+        posts: {
+            default: Object
+        }
+    }
 }
 </script>

@@ -53,7 +53,7 @@
             </header>
 
             <!-- Page Content -->
-            <main>
+            <main class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <slot></slot>
             </main>
 
@@ -89,17 +89,7 @@
         },
 
         methods: {
-            switchToTeam(team) {
-                this.$inertia.put(route('current-team.update'), {
-                    'team_id': team.id
-                }, {
-                    preserveState: false
-                })
-            },
 
-            logout() {
-                this.$inertia.post(route('logout'));
-            },
         }
     }
 </script>
