@@ -47,7 +47,7 @@ export default {
     filters: {
         formatDate(val) {
             const day = dayjs(val);
-            return day.isValid() ? day.format('Y年m月d日') : val;
+            return day.isValid() ? day.format('YYYY年MM月d日') : val;
         }
     }
 }

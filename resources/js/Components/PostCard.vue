@@ -1,15 +1,13 @@
 <template>
-    <div class="p-6 sm:px-20 border-b border-gray-200 h-56 overflow-hidden">
-        <div class="mt-8 text-2xl">
-            <slot name="title">
+    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+        <div class="p-6 sm:px-20 border-b border-gray-200 h-56 overflow-hidden">
+            <div class="mt-6 text-2xl">
                 {{ title }}
-            </slot>
-        </div>
+            </div>
 
-        <div class="mt-6 text-gray-500">
-            <slot name="content">
+            <div class="mt-4 text-base text-gray-500">
                 {{ content }}
-            </slot>
+            </div>
         </div>
     </div>
 </template>
