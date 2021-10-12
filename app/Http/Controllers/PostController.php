@@ -12,11 +12,11 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::published()->latest()->paginate(self::PAGINATE);
-        return Inertia::render('Posts/index', ['posts' => $posts]);
+        return Inertia::render('Posts/Index', ['posts' => $posts]);
     }
 
     public function show(Post $post)
     {
-        return Inertia::render('Posts/show', ['post' => $post]);
+        return Inertia::render('Posts/Show', ['post' => $post]);
     }
 }

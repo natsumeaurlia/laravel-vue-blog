@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import Layout from '@/Layouts/GuestLayout'
+import Layout from '@/Layouts/GuestLayout';
 import PostCard from "@/Components/PostCard";
 
 export default {
