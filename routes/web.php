@@ -16,7 +16,7 @@ use App\Http\Controllers\Admin\PostController as AdminPostController;
 |
 */
 
-Route::redirect('/', 'post');
+Route::redirect('/', 'post')->name('top');
 Route::resource('post', PostController::class)->only(['index', 'show']);
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
