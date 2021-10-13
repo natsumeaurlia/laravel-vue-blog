@@ -25,8 +25,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Route::bind('post', function () {
-            return Post::published()->firstOrFail();
+        Route::bind('post', function ($id) {
+            return Post::published()->findOrFail($id);
         });
     }
 }
