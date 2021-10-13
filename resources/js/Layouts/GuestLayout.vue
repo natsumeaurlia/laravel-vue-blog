@@ -10,17 +10,11 @@
                         <div class="flex">
                             <!-- Logo -->
                             <div class="flex-shrink-0 flex items-center">
-                                <inertia-link :href="route('dashboard')">
+                                <inertia-link :href="route('top')">
                                     <application-mark class="block h-9 w-auto" />
                                 </inertia-link>
                             </div>
 
-                            <!-- Navigation Links -->
-                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <nav-link :href="route('dashboard')" :active="route().current('dashboard')">
-                                    Dashboard
-                                </nav-link>
-                            </div>
                         </div>
 
                         <!-- Hamburger -->
@@ -38,7 +32,7 @@
                 <!-- Responsive Navigation Menu -->
                 <div :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}" class="sm:hidden">
                     <div class="pt-2 pb-3 space-y-1">
-                        <responsive-nav-link :href="route('dashboard')" :active="route().current('dashboard')">
+                        <responsive-nav-link :hrefc="route('admin.dashboard')" :active="route().current('dashboard')">
                             Contact
                         </responsive-nav-link>
                     </div>
