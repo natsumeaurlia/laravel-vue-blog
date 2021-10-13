@@ -1,0 +1,63 @@
+<template>
+    <app-layout>
+        <template #header>
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                Post
+            </h2>
+        </template>
+
+        <div class="py-12">
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                    <table class="w-full">
+                        <thead>
+                        <tr class="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
+                            <th class="px-4 py-3">Name</th>
+                            <th class="px-4 py-3">Age</th>
+                            <th class="px-4 py-3">Status</th>
+                            <th class="px-4 py-3">Date</th>
+                        </tr>
+                        </thead>
+                        <tbody class="bg-white">
+                        <tr v-for="(post, index) in posts.data" class="text-gray-700">
+                            <td class="px-4 py-3 border">
+                                <div class="flex items-center text-sm">
+                                    {{ post.title }}
+                                </div>
+                            </td>
+                            <td class="px-4 py-3 text-ms font-semibold border">22</td>
+                            <td class="px-4 py-3 text-xs border">
+                                <template v-if="post.published">
+                                    <primary-badge>Published</primary-badge>
+                                </template>
+                                <template v-if="!post.published">
+                                    <secondary-badge>Private</secondary-badge>
+                                </template>
+                            </td>
+                            <td class="px-4 py-3 text-sm border">6/4/2000</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </app-layout>
+</template>
+
+<script>
+import AppLayout from '@/Layouts/AppLayout'
+import PrimaryBadge from "@/Components/PrimaryBadge";
+import SecondaryBadge from "@/Components/SecondaryBadge";
+
+export default {
+    components: {
+        PrimaryBadge,
+        SecondaryBadge,
+        AppLayout,
+    },
+    props: {
+        posts: Object
+    }
+}
+</script>
