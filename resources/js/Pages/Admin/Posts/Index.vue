@@ -11,9 +11,9 @@
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                     <table class="w-full">
                         <thead>
-                        <tr class="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
-                            <th class="px-4 py-3">Name</th>
-                            <th class="px-4 py-3">Age</th>
+                        <tr class="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-300 uppercase border-b border-gray-600">
+                            <th class="px-4 py-3">Title</th>
+                            <th class="px-4 py-3">Author</th>
                             <th class="px-4 py-3">Status</th>
                             <th class="px-4 py-3">Date</th>
                         </tr>
@@ -25,7 +25,7 @@
                                     {{ post.title }}
                                 </div>
                             </td>
-                            <td class="px-4 py-3 text-ms font-semibold border">22</td>
+                            <td class="px-4 py-3 text-ms font-semibold border">{{ post.user.name }}</td>
                             <td class="px-4 py-3 text-xs border">
                                 <template v-if="post.published">
                                     <primary-badge>Published</primary-badge>
@@ -34,7 +34,7 @@
                                     <secondary-badge>Private</secondary-badge>
                                 </template>
                             </td>
-                            <td class="px-4 py-3 text-sm border">6/4/2000</td>
+                            <td class="px-4 py-3 text-sm border">{{post.updated_at}}</td>
                         </tr>
                         </tbody>
                     </table>

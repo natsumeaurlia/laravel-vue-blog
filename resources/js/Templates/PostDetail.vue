@@ -1,5 +1,5 @@
 <template>
-    <article class="xl:divide-y xl:divide-gray-200">
+    <article class="xl:divide-y xl:divide-gray-200 bg-white px-4">
         <header class="pt-6 xl:pb-10">
             <div class="space-y-1 text-center">
                 <dl class="space-y-10">
@@ -20,11 +20,11 @@
              style="grid-template-rows: auto 1fr;">
             <dl class="pt-6 pb-10 xl:pt-11 xl:border-b xl:border-gray-200">
                 <dd>
-                    <ul class="flex justify-center xl:block space-x-8 sm:space-x-12 xl:space-x-0 xl:space-y-8">
+                    <ul v-if="author" class="flex justify-center xl:block space-x-8 sm:space-x-12 xl:space-x-0 xl:space-y-8">
                         <li class="flex items-center space-x-2">
                             <dl class="text-sm font-medium whitespace-no-wrap">
                                 <dd class="text-gray-900">
-                                    アダムワタン
+                                    {{ author }}
                                 </dd>
                             </dl>
                         </li>
@@ -43,11 +43,11 @@ import dayjs from 'dayjs';
 
 export default {
     name: "PostDetail",
-    props: ["date", "title", "content"],
+    props: ["date", "title", "content", "author"],
     filters: {
         formatDate(val) {
             const day = dayjs(val);
-            return day.isValid() ? day.format('YYYY年MM月d日') : val;
+            return day.isValid() ? day.format('YYYY年MM月DD日') : val;
         }
     }
 }
