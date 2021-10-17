@@ -22,5 +22,8 @@ Route::resource('post', PostController::class)->only(['index', 'show']);
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth:sanctum', 'verified']], function () {
     Route::resource('post', AdminPostController::class);
-    Route::get('dashboard', DashboardController::class)->name('dashboard');
 });
+
+Route::get('dashboard', DashboardController::class)
+    ->middleware(['auth:sanctum', 'verified'])
+    ->name('dashboard');
