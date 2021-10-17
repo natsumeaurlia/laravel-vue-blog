@@ -19,7 +19,7 @@
                         </tr>
                         </thead>
                         <tbody class="bg-white">
-                        <tr v-for="(post, index) in posts.data" class="text-gray-700">
+                        <tr v-for="(post) in posts.data" class="text-gray-700">
                             <td class="px-4 py-3 border">
                                 <div class="flex items-center text-sm">
                                     {{ post.title }}
