@@ -3,6 +3,6 @@
 return [
     'groups' => [
         'admin' => ['*'],
-        'guest' => ['top', 'post.*'],
+        'guest' => ['top', 'post.*', 'login', 'password.*'],
     ],
 ];
