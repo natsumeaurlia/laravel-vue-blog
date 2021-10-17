@@ -14,7 +14,7 @@ class UpdateTeamNameTest extends TestCase
     {
         $this->actingAs($user = User::factory()->withPersonalTeam()->create());
 
-        $response = $this->put('/teams/'.$user->currentTeam->id, [
+        $response = $this->put(route('teams.update', [$user->currentTeam->id]), [
             'name' => 'Test Team',
         ]);
 
