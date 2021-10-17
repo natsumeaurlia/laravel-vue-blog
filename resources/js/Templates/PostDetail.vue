@@ -40,14 +40,14 @@
 
 <script>
 import dayjs from 'dayjs';
+import {format} from "@/Utils/dateformat";
 
 export default {
     name: "PostDetail",
     props: ["date", "title", "content", "author"],
     filters: {
         formatDate(val) {
-            const day = dayjs(val);
-            return day.isValid() ? day.format('YYYY年MM月DD日') : val;
+           return format(val);
         }
     }
 }

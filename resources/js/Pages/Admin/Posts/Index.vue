@@ -34,7 +34,7 @@
                                     <secondary-badge>Private</secondary-badge>
                                 </template>
                             </td>
-                            <td class="px-4 py-3 text-sm border">{{ post.updated_at }}</td>
+                            <td class="px-4 py-3 text-sm border">{{ post.updated_at | formatDate }}</td>
                         </tr>
                         </tbody>
                     </table>
@@ -51,6 +51,7 @@ import AppLayout from '@/Layouts/AppLayout'
 import PrimaryBadge from "@/Components/PrimaryBadge";
 import SecondaryBadge from "@/Components/SecondaryBadge";
 import Pagination from "@/Components/Pagination";
+import {format} from "@/Utils/dateformat";
 
 export default {
     components: {
@@ -61,6 +62,11 @@ export default {
     },
     props: {
         posts: Object
+    },
+    filters: {
+        formatDate(val) {
+            return format(val);
+        }
     }
 }
 </script>
