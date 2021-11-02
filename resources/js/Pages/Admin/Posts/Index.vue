@@ -8,7 +8,12 @@
 
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                <inertia-link :href="route('admin.post.create')">
+                    <primary-badge>
+                        新規作成
+                    </primary-badge>
+                </inertia-link>
+                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg mt-4">
                     <table class="w-full">
                         <thead>
                         <tr class="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-300 uppercase border-b border-gray-600">
