@@ -32,14 +32,13 @@
                 </dd>
             </dl>
             <div class="divide-y divide-gray-200 xl:pb-0 xl:col-span-3 xl:row-span-2">
-                <div class="max-w-none pt-10 pb-8" id="content" v-html="content"/>
+                <div class="markdown-body max-w-none pt-10 pb-8" id="content" v-html="content"/>
             </div>
         </div>
     </article>
 </template>
 
 <script>
-import dayjs from 'dayjs';
 import {format} from "@/Utils/dateformat";
 
 export default {
