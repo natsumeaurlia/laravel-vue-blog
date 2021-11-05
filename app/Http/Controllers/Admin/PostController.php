@@ -28,8 +28,8 @@ class PostController extends Controller
         $post = new Post();
         $data = array_merge($request->validated(), ['user_id' => Auth::id()]);
         if (!$post->fill($data)->save()) {
-            return redirect()->route('admin.post.index')->with('failed-message', 'Create Failed');
+            return redirect()->route('admin.post.index')->with('failed', 'Create Failed');
         }
-        return redirect()->route('admin.post.index')->with('success-message', 'Create Successful');
+        return redirect()->route('admin.post.index')->with('success', 'Create Successful');
     }
 }

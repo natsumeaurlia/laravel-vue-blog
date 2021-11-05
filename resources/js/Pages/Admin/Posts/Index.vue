@@ -8,6 +8,7 @@
 
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <flush-message class="mb-8"/>
                 <inertia-link :href="route('admin.post.create')">
                     <primary-badge>
                         新規作成
@@ -57,9 +58,11 @@ import PrimaryBadge from "@/Components/PrimaryBadge";
 import SecondaryBadge from "@/Components/SecondaryBadge";
 import Pagination from "@/Components/Pagination";
 import {format} from "@/Utils/dateformat";
+import FlushMessage from "@/Components/FlushMessage";
 
 export default {
     components: {
+        FlushMessage,
         Pagination,
         PrimaryBadge,
         SecondaryBadge,
@@ -70,7 +73,7 @@ export default {
     },
     filters: {
         formatDate(val) {
-            return format(val);
+            return format(val, 'YYYY年MM月DD日 HH:mm ss');
         }
     }
 }

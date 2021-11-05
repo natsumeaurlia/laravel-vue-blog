@@ -6,7 +6,7 @@
 
 <script>
 import Layout from '@/Layouts/GuestLayout';
-import PostDetail from "@/Templates/PostDetail";
+import PostDetail from "@/Components/PostDetail";
 
 export default {
     components: {
