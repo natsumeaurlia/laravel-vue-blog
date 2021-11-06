@@ -16,6 +16,8 @@ class Post extends Model
 
     protected $guarded = ['id'];
 
+    protected $appends = ['html_content'];
+
     public function scopePublished(Builder $query)
     {
         return $query->where('published', true);

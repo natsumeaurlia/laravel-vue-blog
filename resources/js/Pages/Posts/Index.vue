@@ -3,8 +3,8 @@
         <div class="py-12 min-h-full">
             <template v-for="(post, index) in posts.data">
                 <inertia-link :href="route('post.show', post.id)" :key="index"
-                              :class="['block', index % 2 == 0 ? 'my-8' : '']">
-                    <PostCard :title="post.title" :content="omitContent(post.content)"/>
+                              :class="['block', index % 2 === 0 ? 'my-8' : '']">
+                    <PostCard :title="post.title" :content="omitContent(post.html_content)"/>
                 </inertia-link>
             </template>
             <pagination class="mt-6" :links="posts.links"/>

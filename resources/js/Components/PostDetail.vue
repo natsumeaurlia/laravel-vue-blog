@@ -9,7 +9,7 @@
                         </dd>
                     </div>
                 </dl>
-                <div>
+                <div class="mt-2">
                     <h1 class="text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl md:text-5xl md:leading-[3.5rem]">
                         {{ title }}
                     </h1>
