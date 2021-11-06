@@ -4,7 +4,7 @@
         <div class="flex justify-between">
         <textarea @input="onInput" id="marked"
                   class="w-1/2 bg-white border-gray-300 rounded p-2"
-                  rows="10"></textarea>
+                  rows="10">{{content}}</textarea>
             <div class="markdown-body w-1/2 bg-white ml-4 border-gray-300 border rounded p-2"
                  v-html="compiledMarkdown"/>
         </div>

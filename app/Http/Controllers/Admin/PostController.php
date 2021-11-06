@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StorePostRequest;
+use App\Http\Requests\UpdatePostRequest;
 use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
@@ -31,5 +32,18 @@ class PostController extends Controller
             return redirect()->route('admin.post.index')->with('failed', 'Create Failed');
         }
         return redirect()->route('admin.post.index')->with('success', 'Create Successful');
+    }
+
+    public function edit(Post $post)
+    {
+        return Inertia::render('Admin/Posts/Edit', ['post' => $post]);
+    }
+
+    public function update(UpdatePostRequest $request, Post $post)
+    {
+        if (!$post->fill($request->validated())->save()) {
+            return redirect()->route('admin.post.index')->with('failed', 'Update Failed');
+        }
+        return redirect()->route('admin.post.index')->with('success', 'Update Successful');
     }
 }

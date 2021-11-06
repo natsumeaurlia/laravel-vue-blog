@@ -21,7 +21,7 @@ Route::redirect('/', 'post')->name('top');
 Route::resource('post', PostController::class)->only(['index', 'show']);
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth:sanctum', 'verified']], function () {
-    Route::resource('post', AdminPostController::class);
+    Route::resource('post', AdminPostController::class)->except(['show']);
 });
 
 Route::get('dashboard', DashboardController::class)

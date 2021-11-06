@@ -18,7 +18,7 @@
                     <table class="w-full">
                         <thead>
                         <tr class="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-300 uppercase border-b border-gray-600">
-                            <th class="px-4 py-3">Title</th>
+                            <th class="px-4 py-3" colspan="2">Title</th>
                             <th class="px-4 py-3">Author</th>
                             <th class="px-4 py-3">Status</th>
                             <th class="px-4 py-3">Date</th>
@@ -26,6 +26,10 @@
                         </thead>
                         <tbody class="bg-white">
                         <tr v-for="(post) in posts.data" class="text-gray-700">
+                            <td class="border cursor-pointer p-1 text-center"
+                                @click="moveEdit(post.id)">
+                                <ficon icon="pen"></ficon>
+                            </td>
                             <td class="px-4 py-3 border">
                                 <div class="flex items-center text-sm">
                                     {{ post.title }}
@@ -70,6 +74,11 @@ export default {
     },
     props: {
         posts: Object
+    },
+    methods: {
+        moveEdit(id) {
+            window.location.href = route('admin.post.edit', {id: id})
+        }
     },
     filters: {
         formatDate(val) {

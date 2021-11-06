@@ -26,7 +26,7 @@ class Post extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function getContentAttribute($value)
+    public function getHtmlContentAttribute(): string
     {
         $converter = new CommonMarkConverter([
             'allow_unsafe_links' => false,
@@ -34,6 +34,6 @@ class Post extends Model
 
         $converter->getEnvironment()->addExtension(new TableExtension());
 
-        return $converter->convertToHtml($value);
+        return $converter->convertToHtml($this->content);
     }
 }
