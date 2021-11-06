@@ -16,19 +16,13 @@
                         <div v-if="errors.title" class="text-red-700 font-semibold">{{ errors.title }}</div>
                     </div>
                     <div class="mt-8">
-                        <label for="postContent" class="block">Content</label>
-                        <div class="flex justify-between">
-                            <textarea v-model="form.content" id="postContent"
-                                      class="w-1/2 bg-white border-gray-300 rounded p-2"
-                                      rows="10"></textarea>
-                            <div class="markdown-body w-1/2 bg-white ml-4 border-gray-300 border rounded p-2"
-                                 v-html="compiledMarkdown"/>
-                        </div>
+                        <markdown-editor label="Content" :content.sync="form.content"/>
                         <div v-if="errors.content" class="text-red-700 font-semibold">{{ errors.content }}</div>
                     </div>
                     <div class="flex flex-col mt-4">
                         <label for="published">Type</label>
-                        <select v-model="form.published" id="published" class="bg-white border-gray-300 rounded p-2 w-1/5">
+                        <select v-model="form.published" id="published"
+                                class="bg-white border-gray-300 rounded p-2 w-1/5">
                             <option value="1">Publish</option>
                             <option value="0">Private</option>
                         </select>
@@ -49,15 +43,11 @@
 
 <script>
 import AppLayout from '@/Layouts/AppLayout'
-import PrimaryBadge from "@/Components/PrimaryBadge";
-import SecondaryBadge from "@/Components/SecondaryBadge";
-import {format} from "@/Utils/dateformat";
-import {marked} from 'marked';
+import MarkdownEditor from "@/Components/MarkdownEditor";
 
 export default {
     components: {
-        PrimaryBadge,
-        SecondaryBadge,
+        MarkdownEditor,
         AppLayout,
     },
     data() {
@@ -70,7 +60,6 @@ export default {
         }
     },
     props: {
-        posts: Object,
         errors: Object,
     },
     methods: {
@@ -78,16 +67,6 @@ export default {
             this.$inertia.post(route('admin.post.store'), this.form)
         },
     },
-    computed: {
-        compiledMarkdown() {
-            return marked(this.form.content);
-        },
-    },
-    filters: {
-        formatDate(val) {
-            return format(val);
-        }
-    }
 }
 </script>
 <style scoped lang="scss">
