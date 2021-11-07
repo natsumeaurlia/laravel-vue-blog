@@ -117,4 +117,4 @@ jobs:
 
       - name: Execute Code Static Analysis (PHP Stan + Larastan)
         run: |
-          vendor/bin/phpstan analyse app -c ./vendor/nunomaduro/larastan/extension.neon  --level=4 --no-progress
+          vendor/bin/phpstan analyse app -c ./vendor/nunomaduro/larastan/extension.neon  --level=1 --no-progress
