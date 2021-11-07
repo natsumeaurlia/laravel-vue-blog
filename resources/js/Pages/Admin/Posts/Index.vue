@@ -21,7 +21,7 @@
                             <th class="px-4 py-3" colspan="2">Title</th>
                             <th class="px-4 py-3">Author</th>
                             <th class="px-4 py-3">Status</th>
-                            <th class="px-4 py-3">Date</th>
+                            <th class="px-4 py-3" colspan="2">Date</th>
                         </tr>
                         </thead>
                         <tbody class="bg-white">
@@ -45,11 +45,33 @@
                                 </template>
                             </td>
                             <td class="px-4 py-3 text-sm border">{{ post.updated_at | formatDate }}</td>
+                            <td class="border cursor-pointer p-1 text-center" @click="showModal(post.id, route('admin.post.destroy', {id:post.id}))">
+                                <ficon icon="trash"></ficon>
+                            </td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
                 <pagination class="mt-6" :links="posts.links"/>
+                <jet-dialog-modal :show="confirmingDeletion" @close="closeModal">
+                    <template #title>
+                        Delete Post
+                    </template>
+
+                    <template #content>
+                        Are you sure you want to delete this post?
+                    </template>
+
+                    <template #footer>
+                        <jet-secondary-button @click.native="closeModal">
+                            Nevermind
+                        </jet-secondary-button>
+
+                        <jet-danger-button class="ml-2" @click.native="deletePost">
+                            Delete Account
+                        </jet-danger-button>
+                    </template>
+                </jet-dialog-modal>
             </div>
         </div>
 
@@ -63,6 +85,9 @@ import SecondaryBadge from "@/Components/SecondaryBadge";
 import Pagination from "@/Components/Pagination";
 import {format} from "@/Utils/dateformat";
 import FlushMessage from "@/Components/FlushMessage";
+import JetDialogModal from '@/Jetstream/ConfirmationModal'
+import JetDangerButton from '@/Jetstream/DangerButton'
+import JetSecondaryButton from '@/Jetstream/SecondaryButton'
 
 export default {
     components: {
@@ -71,6 +96,16 @@ export default {
         PrimaryBadge,
         SecondaryBadge,
         AppLayout,
+        JetDialogModal,
+        JetDangerButton,
+        JetSecondaryButton
+    },
+    data() {
+        return {
+            confirmingDeletion: false,
+            postId: '',
+            deleteRoute: ''
+        }
     },
     props: {
         posts: Object
@@ -78,6 +113,18 @@ export default {
     methods: {
         moveEdit(id) {
             window.location.href = route('admin.post.edit', {id: id})
+        },
+        deletePost() {
+            this.$inertia.delete(this.deleteRoute, {id: this.postId})
+            this.closeModal();
+        },
+        showModal(id, route) {
+            this.confirmingDeletion = true
+            this.postId = id;
+            this.deleteRoute = route
+        },
+        closeModal() {
+            Object.assign(this.$data, this.$options.data());
         }
     },
     filters: {

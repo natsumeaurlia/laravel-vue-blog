@@ -46,4 +46,12 @@ class PostController extends Controller
         }
         return redirect()->route('admin.post.index')->with('success', 'Update Successful');
     }
+
+    public function destroy(Post $post)
+    {
+        if (!$post->delete()) {
+            return redirect()->route('admin.post.index')->with('failed', 'Delete Failed');
+        }
+        return redirect()->route('admin.post.index')->with('success', 'Delete Successful');
+    }
 }
