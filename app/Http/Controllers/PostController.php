@@ -17,7 +17,7 @@ class PostController extends Controller
 
     public function show(Post $post)
     {
-        if(!$post->published) {
+        if (!$post->published) {
             abort(404);
         }
         return Inertia::render('Posts/Show', ['post' => $post]);

@@ -11,14 +11,14 @@ class Locale
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param \Illuminate\Http\Request $request
+     * @param \Closure $next
      * @return mixed
      */
     public function handle(Request $request, Closure $next)
     {
         $locale = collect(explode(',', $request->header('accept-language')))->first();
-        if($locale) {
+        if ($locale) {
             App::setLocale($locale);
         }
         return $next($request);
