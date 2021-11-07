@@ -54,6 +54,9 @@
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
         ],
+        "phpcs": [
+            "./vendor/bin/phpcs --standard=PSR12 app"
+        ],
         "phpcbf": [
             "./vendor/bin/phpcbf --standard=PSR12 app"
         ],
