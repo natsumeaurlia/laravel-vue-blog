@@ -68,7 +68,7 @@
                         </jet-secondary-button>
 
                         <jet-danger-button class="ml-2" @click.native="deletePost">
-                            Delete Account
+                            Delete Post
                         </jet-danger-button>
                     </template>
                 </jet-dialog-modal>
