@@ -20,7 +20,7 @@ class LeaveTeamTest extends TestCase
 
         $this->actingAs($otherUser);
 
-        $response = $this->delete('/teams/'.$user->currentTeam->id.'/members/'.$otherUser->id);
+        $response = $this->delete(route('team-members.destroy', ['team' => $user->currentTeam->id, 'user' => $otherUser->id]));
 
         $this->assertCount(0, $user->currentTeam->fresh()->users);
     }
@@ -29,7 +29,7 @@ class LeaveTeamTest extends TestCase
     {
         $this->actingAs($user = User::factory()->withPersonalTeam()->create());
 
-        $response = $this->delete('/teams/'.$user->currentTeam->id.'/members/'.$user->id);
+        $response = $this->delete(route('team-members.destroy', ['team' => $user->currentTeam->id, 'user' => $user->id]));
 
         $response->assertSessionHasErrorsIn('removeTeamMember', ['team']);
 
