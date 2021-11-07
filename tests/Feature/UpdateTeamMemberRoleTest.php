@@ -18,7 +18,8 @@ class UpdateTeamMemberRoleTest extends TestCase
             $otherUser = User::factory()->create(), ['role' => 'admin']
         );
 
-        $response = $this->put('/teams/'.$user->currentTeam->id.'/members/'.$otherUser->id, [
+        $route = route('team-members.update', [$user->currentTeam->id, $otherUser->id]);
+        $response = $this->put($route, [
             'role' => 'editor',
         ]);
 
@@ -37,7 +38,8 @@ class UpdateTeamMemberRoleTest extends TestCase
 
         $this->actingAs($otherUser);
 
-        $response = $this->put('/teams/'.$user->currentTeam->id.'/members/'.$otherUser->id, [
+        $route = route('team-members.update', [$user->currentTeam->id, $otherUser->id]);
+        $response = $this->put($route, [
             'role' => 'editor',
         ]);
 
