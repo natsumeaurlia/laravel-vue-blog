@@ -6,6 +6,7 @@ use App\Models\Post;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
 class SamplePostSeeder extends Seeder
@@ -19,7 +20,7 @@ class SamplePostSeeder extends Seeder
      */
     public function run()
     {
-        $admin = User::factory()->create(['name' => 'admin', 'email' => 'test@example.com', 'password' => encrypt('example1234')]);
+        $admin = User::factory()->create(['name' => 'admin', 'email' => 'test@example.com', 'password' => Hash::make('example1234')]);
         $markdown_dir = resource_path(self::DIR);
         $files = glob($markdown_dir);
         collect($files)->each(function ($file) use ($admin) {
