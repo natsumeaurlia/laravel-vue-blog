@@ -15,4 +15,4 @@ jobs:
           heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
           heroku_email: ${{secrets.HEROKU_EMAIL}}
           justlogin: true
-      - run: heroku run　php artisan migrate
+      - run: heroku run php artisan migrate
