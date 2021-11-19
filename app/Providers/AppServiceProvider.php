@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Models\Post;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 
@@ -29,6 +30,7 @@ class AppServiceProvider extends ServiceProvider
     {
         if (App::environment(['heroku', 'production'])) {
             URL::forceScheme('https');
+            Schema::defaultStringLength(191);
         }
     }
 }
